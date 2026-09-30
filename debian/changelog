@@ -1,0 +1,5 @@
+hailo-model-zoo-genai (5.4.0-1) UNRELEASED; urgency=medium
+
+  * Initial release.
+
+ -- Andrej Shadura <andrewsh@debian.org>  Wed, 30 Sep 2026 12:54:26 +0200

@@ -1,0 +1,20 @@
+#!/usr/bin/make -f
+
+include /usr/share/dpkg/default.mk
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+CMAKE_ARGS = \
+	-DFETCHCONTENT_FULLY_DISCONNECTED=ON \
+	-DFETCHCONTENT_TRY_FIND_PACKAGE_MODE=ALWAYS
+
+%:
+	dh $@ --buildsystem=cmake
+
+override_dh_auto_configure:
+	mkdir -p external
+	for d in eventpp oatpp oatpp-openssl minja; \
+	do \
+		ln -sf ../$$d external/$$d-src; \
+	done
+	dh_auto_configure -- $(CMAKE_ARGS)

@@ -1,0 +1,30 @@
+Source: hailo-model-zoo-genai
+Section: net
+Priority: optional
+Maintainer: Andrej Shadura <andrew.shadura@collabora.co.uk>
+Build-Depends:
+ cmake,
+ debhelper-compat (= 13),
+ libhailort-dev,
+ libssl-dev,
+ nlohmann-json3-dev,
+Standards-Version: 4.7.4.1
+Rules-Requires-Root: no
+Homepage: https://github.com/hailo-ai/hailo_model_zoo_genai
+
+Package: hailo-ollama
+Architecture: any
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
+Description: Ollama-compatible API server for Hailo AI accelerators
+ The Hailo Model Zoo GenAI is a curated collection of pre-trained models
+ and example applications optimized for Hailo's AI processors, designed
+ to accelerate GenAI application development.
+ .
+ This package contains Hailo-Ollama, an Ollama-compatible REST API
+ server written in C++ on top of HailoRT, enabling seamless integration
+ with tools and frameworks that speak Ollama's API.
+ .
+ Models are fetched on demand at runtime and are not included in this
+ package.
